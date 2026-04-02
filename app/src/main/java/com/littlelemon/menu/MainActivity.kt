@@ -27,12 +27,18 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun InitUI() {
         val products by productsState.collectAsState()
-        ProductsGrid(products = products)
+        ProductsGrid(products = products, startProductActivity(this::startProductActivity))
     }
 
     private fun startProductActivity(productItem: ProductItem) {
         //TODO instantiate intent and pass extra parameter from product
         val intent = android.content.Intent(this, ProductActivity::class.java)
+
+        intent.putExtra(ProductActivity.KEY_TITLE, product.title)
+        intent.putExtra(ProductActivity.KEY_PRICE, product.price)
+        intent.putExtra(ProductActivity.KEY_IMAGE, product.image)
+        intent.putExtra(ProductActivity.KEY_CATEGORY, product.category)
+
         startActivity(intent)
     }
 

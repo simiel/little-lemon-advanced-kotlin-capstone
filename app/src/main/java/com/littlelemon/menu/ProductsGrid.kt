@@ -18,7 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ProductsGrid(products: Products) {
+fun ProductsGrid(products: Products, startProductActivity: (ProductItem) -> Unit) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         contentPadding = PaddingValues(16.dp),
@@ -38,6 +38,7 @@ fun ProductsGrid(products: Products) {
                         contentScale = ContentScale.Crop,
                         modifier = Modifier.clickable {
                             //TODO start ProductActivity and pass the productItem details
+                            startProductActivity(product)
                         }
                     )
                     Text(text = productItem.title)
