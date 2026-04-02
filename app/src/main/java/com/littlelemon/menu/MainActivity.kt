@@ -32,6 +32,8 @@ class MainActivity : ComponentActivity() {
 
     private fun startProductActivity(productItem: ProductItem) {
         //TODO instantiate intent and pass extra parameter from product
+        val intent = android.content.Intent(this, ProductActivity::class.java)
+        startActivity(intent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
