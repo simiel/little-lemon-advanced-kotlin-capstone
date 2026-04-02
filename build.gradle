@@ -1,0 +1,15 @@
+buildscript {
+    ext {
+        // keep this here so module build files can reference compose_ui_version
+        compose_ui_version = '1.7.6'
+    }
+}
+
+plugins {
+    id 'com.android.application' version '8.13.0' apply false
+    id 'com.android.library'     version '8.13.0' apply false
+    id 'org.jetbrains.kotlin.android' version '2.0.21' apply false
+
+    // Make the Compose Gradle plugin available to module build files
+    id 'org.jetbrains.kotlin.plugin.compose' version '2.0.21' apply false
+}
